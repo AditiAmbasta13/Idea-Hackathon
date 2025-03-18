@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 function Home() {
   const navigate = useNavigate();
 
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
 
@@ -20,7 +24,7 @@ function Home() {
             <div className="md:w-7/12 mb-8 md:mb-0">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Union Bank Fraud Detection System</h2>
               <p className="text-lg mb-6">
-                A secure and reliable platform to detect and prevent fraudulent activities in financial transactions across our banking network.
+              Union Bank's AI-powered fraud detection system protects your financial transactions with industry-leading accuracy and real-time monitoring.
               </p>
               <div className="flex flex-wrap gap-4">
                 <button
@@ -36,11 +40,14 @@ function Home() {
             </div>
             <div className="md:w-4/12">
               <div className="bg-white p-6 rounded shadow-md">
-                <h3 className="text-unionblue-900 font-bold text-xl mb-4">Important Notice</h3>
-                <p className="text-gray-700 mb-4">
-                  As per RBI guidelines, all banking institutions are required to implement enhanced fraud detection measures by the end of this fiscal year.
-                </p>
-                <a href="#" className="text-unionaccent-600 font-medium hover:underline">Read Full Notice →</a>
+                <h3 className="text-unionblue-900 font-bold text-xl mb-4">Create Transaction</h3>
+                
+                <a 
+                onClick={() => handleNavigation('/create-transaction')} 
+                className="block py-3 px-4 cursor-pointer text-unionblue-900 bg-slate-200"
+              >
+                Proceed to Transactions →
+              </a>
               </div>
             </div>
           </div>

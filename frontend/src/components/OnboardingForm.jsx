@@ -44,7 +44,7 @@ function OnboardingForm() {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
+  
     try {
       const data = new FormData();
       Object.keys(formData).forEach(key => {
@@ -55,17 +55,22 @@ function OnboardingForm() {
           data.append(key, files[key]);
         }
       });
-
+  
       const response = await fetch('http://localhost:5000/customer-onboarding', {
         method: 'POST',
         body: data
       });
-
+  
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
-
+  
       const result = await response.json();
+  
+      // Store Customer ID and Name in localStorage
+      localStorage.setItem("userName", formData.name);
+      localStorage.setItem("customerId", result.customer_id); // Store Customer ID
+  
       setResult(result);
     } catch (err) {
       setError(err.message);
@@ -75,7 +80,7 @@ function OnboardingForm() {
   };
 
   const handleProceed = () => {
-    navigate('/risk-assessment', { state: { customer_id: result.customer_id } });
+    navigate('/');
   };
 
   return (
@@ -275,6 +280,14 @@ function OnboardingForm() {
                     <h4 className="font-semibold text-gray-700">Name</h4>
                     <p className="text-lg">{result.name}</p>
                   </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-700">Email</h4>
+                    <p className="text-lg">{result.email}</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-700">DOB</h4>
+                    <p className="text-lg">{result.dob}</p>
+                  </div>
                   <p className="text-gray-700">
                     <strong>Aadhaar Verified:</strong> {result.verification_status.aadhaar_verified ? 'Yes' : 'No'}
                   </p>
@@ -300,7 +313,7 @@ function OnboardingForm() {
                     onClick={handleProceed}
                     className="bg-blue-900 text-white py-2 px-6 rounded hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-700 transition duration-200"
                   >
-                    Proceed to Risk Assessment
+                    Proceed to Home
                   </button>
                 </div>
               </div>

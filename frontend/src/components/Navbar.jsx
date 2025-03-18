@@ -1,9 +1,19 @@
 import { useNavigate, useLocation } from 'react-router-dom';
 import UnionLogo from './union_bank_logo.png';
+import { useEffect, useState } from 'react';
 
 function Navbar() {
   const navigate = useNavigate();
   const location = useLocation();
+  const [userName, setUserName] = useState("");
+
+  // Retrieve user's name from localStorage on component mount
+  useEffect(() => {
+    const name = localStorage.getItem("userName");
+    if (name) {
+      setUserName(name);
+    }
+  }, []);
 
   // Helper function to check if a path is active
   const isActive = (path) => {
@@ -31,15 +41,23 @@ function Navbar() {
             <h1 className="text-lg font-bold">UNION BANK OF INDIA</h1>
             <p className="text-sm">Financial Fraud Prevention System</p>
           </div>
-          <div className="ml-auto">
-            <button onClick={() => navigate('/onboarding')} className="bg-white text-unionblue-700 px-4 py-2 text-sm font-medium rounded">Login</button>
-          </div>
-          <a 
+          {/* <div className="ml-auto flex items-center">
+          {userName && (
+            <span className="text-sm">Welcome, {userName}</span>
+          )}
+            <button 
+              onClick={() => navigate('/onboarding')} 
+              className="bg-white text-unionblue-700 px-4 py-2 text-sm font-medium rounded"
+            >
+              Login
+            </button>
+          </div> */}
+          {/* <a 
             onClick={() => handleNavigation('/profiles')} 
             className={`block py-3 px-4 cursor-pointer ${isActive('/profiles')}`}
           >
             Profile
-          </a>
+          </a> */}
         </div>
       </header>
 
@@ -57,28 +75,36 @@ function Navbar() {
             </li>
             <li>
               <a 
-                onClick={() => handleNavigation('/about')} 
+                onClick={() => handleNavigation('/fraud-tips')} 
                 className={`block py-3 px-4 cursor-pointer ${isActive('/about')}`}
               >
-                About
+                Fraud-Tips
               </a>
             </li>
+            {/* <li>
+              <a 
+                onClick={() => handleNavigation('/profile')} 
+                className={`block py-3 px-4 cursor-pointer ${isActive('/about')}`}
+              >
+                Profile Feedback
+              </a>
+            </li> */}
             <li>
               <a 
-                onClick={() => handleNavigation('/services')} 
+                onClick={() => handleNavigation('/recommendations')} 
                 className={`block py-3 px-4 cursor-pointer ${isActive('/services')}`}
               >
-                Services
+                Recommendations
               </a>
             </li>
-            <li>
+            {/* <li>
               <a 
-                onClick={() => handleNavigation('/resources')} 
+                onClick={() => handleNavigation('/transactions')} 
                 className={`block py-3 px-4 cursor-pointer ${isActive('/resources')}`}
               >
-                Resources
+                Transaction Insights
               </a>
-            </li>
+            </li> */}
             <li>
               <a 
                 onClick={() => handleNavigation('/contact')} 

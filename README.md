@@ -83,7 +83,7 @@ We developed a **multi-layered AI fraud prevention system** integrating **Genera
 ![WhatsApp Image 2025-03-18 at 11 40 02_cdc55cd1](https://github.com/user-attachments/assets/221896fe-ae32-4fda-8f29-a4590c16d14f)
 ![WhatsApp Image 2025-03-18 at 11 43 39_a7d19109](https://github.com/user-attachments/assets/6963c26b-7ba3-4399-9ebe-c33db01506e3)
 ![image](https://github.com/user-attachments/assets/c8baca54-7a64-4155-81cb-771b16485b7f)
-![image](https://github.com/user-attachments/assets/e13f85cd-1357-40d8-9a4b-2773ab777c85)
+![image](https://github.com/user-attachments/assets/a6a4af4e-a933-48a2-a07b-7d7c7deb7c0f) ![image](https://github.com/user-attachments/assets/589e0f1b-2fa5-4af0-bea6-1341a05a1a01)
 ![image](https://github.com/user-attachments/assets/2e60cd42-d61c-43fa-97a9-8331b54d3bee)
 ![image](https://github.com/user-attachments/assets/4f6b6fdf-458a-42b1-907d-739027715ac9)
 ![image](https://github.com/user-attachments/assets/ebd08a06-1ff3-4965-b009-fcdf001b0cfb)
